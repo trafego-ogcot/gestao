@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tráfego</title>
+</head>
+<body>
+
+    <div id="div-principal">
+        <!-- <div id="menu-inicial">
+            <button><a href="cadastro.html">Cadastro</a></button>
+            <button><a href="ferias.html">Férias</a></button>
+            <button><a href="abonos.html">Abonos</a></button>
+            <button><a href="treinamento.html">Treinamento</a></button>
+        </div> -->
+        <div id="div-calendario">
+            <div id="menu-escala">
+                <label for="escala">Escala</label>
+                <select name="escala" id="escala">
+                    <option value="todas">TODXS</option>
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                    <option value="c">C</option>
+                    <option value="d">D</option>
+                    <option value="e">E</option>
+                </select>
+            </div>
+            <div id="menu-ano">
+                <button id="menos-ano" onclick="menosAno()"><</button>
+                <div id="ano"></div>
+                <button id="mais-ano" onclick="maisAno()">></button>
+            </div>
+            <div id="menu-mes">
+                <button id="menos-mes" onclick="menosMes()"><</button>
+                <div id="mes"></div>
+                <button id="mais-mes" onclick="maisMes()">></button>
+            </div>
+            <div id="semana">
+                <span id="dom">Domingo</span>
+                <span id="seg">Segunda</span>
+                <span id="ter">Terça</span>
+                <span id="qua">Quarta</span>
+                <span id="qui">Quinta</span>
+                <span id="sex">Sexta</span>
+                <span id="sab">Sábado</span>
+            </div>
+            <div id="calendario"></div>
+        </div>
+        
+    </div>
+    
+</body>
+<!-- <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js"></script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyA9sxu2a_LybZatwJubxg218nsDRyFkuPU",
+      authDomain: "gestao-trafego.firebaseapp.com",
+      databaseURL: "https://gestao-trafego-default-rtdb.firebaseio.com",
+      projectId: "gestao-trafego",
+      storageBucket: "gestao-trafego.appspot.com",
+      messagingSenderId: "912766766816",
+      appId: "1:912766766816:web:93041643a779e219178a85"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script> -->
+  
+<script src="index.js"></script>
+</html>

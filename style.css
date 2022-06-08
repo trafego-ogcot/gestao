@@ -1,0 +1,244 @@
+* {
+    text-decoration: none;
+    font-family: monospace;
+    letter-spacing: .8pt;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+    user-select: none;
+}
+
+a:link, a:visited {
+    color: rgb(0, 0, 149);
+}
+
+a:hover {
+    color: grey
+}
+
+body {
+    padding: 7px;
+}
+
+button {
+    padding: 10px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(131, 131, 131, 0.098);
+}
+
+#div-principal {
+    display: flex;
+    flex-direction: column; 
+}
+
+#div-calendario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+}
+
+#menu-ano, #menu-mes {
+    display: flex;
+    flex-direction: row;
+}
+
+#menu-mes {
+    margin: 5px 0;
+}
+
+#menu-escala {
+    align-self: flex-end;
+    position: absolute;
+}
+
+#ano {
+    font-size: 14pt;
+    color: rgb(164, 164, 164);
+    padding: 0 15px;
+}
+
+#mes {
+    color: rgb(113, 113, 113);
+    font-size: 20pt;
+    font-weight: bold;
+    padding: 0 15px;
+}
+
+#semana {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(7, 14%);
+    margin-bottom: 8px;
+    color: rgb(171, 171, 171);
+}
+
+#calendario {
+    width: 90%;
+    height: 85%;
+    display: grid;
+    grid-template-columns:repeat(7, 14%);
+    grid-template-rows:repeat(6, 18%);
+}
+
+.dia {
+    box-shadow: rgb(230, 230, 230) 2px 3px 5px;
+    background-color: rgba(242, 242, 242, 0.392);
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    border-radius: 4px;
+}
+
+.dia:hover{
+    background-color: rgba(242, 242, 242, 0.802);
+}
+
+.numero-dia {
+    position: absolute;
+    font-size: 20pt;
+    opacity: .2;
+    align-self: flex-end;
+}
+
+.vazio {
+    display: flex;
+    color: grey;
+}
+
+
+.conteudo-dia {
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+}
+
+.falta {
+
+}
+
+.atraso {
+
+}
+
+.s-antecipada {
+
+}
+
+.greve {
+
+}
+
+.folga {
+    color: green;
+}
+
+.abono {
+    color: rgb(152, 126, 48);
+}
+
+.p-facultativo {
+
+}
+
+.ferias {
+    color: rgb(46, 46, 159);
+}
+
+.paternidade {
+
+}
+
+.gestante {
+
+}
+
+.luto {
+
+}
+
+.gala {
+
+}
+
+.eleitoral {
+
+}
+
+.aa {
+
+}
+
+.ac {
+
+}
+
+.lm {
+
+}
+
+.cj {
+
+}
+
+.treinamento {
+
+}
+
+.disciplinar {
+
+}
+
+.susp-contrato {
+
+}
+
+.p-desportiva {
+
+}
+
+.outros {
+
+}
+
+span[class^="escala-"] {
+    padding: 1px 2px;
+    font-weight: bold;
+}
+
+.escala-a {
+    color: orange;
+}
+
+.escala-b {
+    color: green;
+}
+
+.escala-c {
+    color: blue
+}
+
+.escala-d {
+    color: purple;
+}
+
+.escala-e {
+    color: brown;
+}
+
+@media only screen and (max-width: 600px) {
+    .numero-dia {
+      font-size: 10pt;
+    }
+    label, #escala {
+        font-size: 7pt;
+    }
+  }
