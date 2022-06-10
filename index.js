@@ -139,7 +139,7 @@ async function carregarCalendario(data) {
 var escala = document.getElementById('escala')
 var escalaSelecionada = localStorage.getItem('escalaSelecionada')
 
-if (escalaSelecionada == undefined) {
+if (escalaSelecionada == null) {
     escala.value = 'TODAS'
 } else {escala.value = escalaSelecionada}
 
@@ -152,7 +152,7 @@ escala.addEventListener('change', (e) => {
 var dataSelecionada = new Date()
 var anoSelecionado = new Date(dataSelecionada).getFullYear()
 var mesSelecionado = new Date(dataSelecionada).getMonth()
-console.log(anoSelecionado)
+
 localStorage.setItem('dataSelecionada', dataSelecionada)
 
 carregarCalendario(dataSelecionada)
