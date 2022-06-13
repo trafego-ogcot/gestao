@@ -1,0 +1,374 @@
+* {
+    text-decoration: none;
+    font-family: monospace;
+    letter-spacing: .8pt;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+    user-select: none;
+}
+
+body {
+    padding: 5px;
+    background-color: rgb(45, 45, 45);
+}
+
+button {
+    padding: 10px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(131, 131, 131, 0.098);
+}
+
+#div-principal {
+    display: flex;
+    flex-direction: column; 
+}
+
+#div-calendario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+}
+
+#menu-ano-mes {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 12pt;
+    color: rgb(184, 184, 184);
+    font-weight: bold;
+}
+
+#menu-ano-mes button {
+    color: rgb(113, 113, 113);
+}
+
+#menu-ano-mes div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#menu-escala {
+    padding: 10px;
+}
+
+#menu-escala select {
+    background-color: rgb(45, 45, 45);
+    color: rgb(184, 184, 184);
+}
+
+#div-mes {
+    min-width: 150px;
+}
+
+#semana {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(7, 14%);
+    margin-bottom: 8px;
+    color: rgb(171, 171, 171);
+}
+
+#calendario {
+    width: 90%;
+    height: 85%;
+    display: grid;
+    grid-template-columns:repeat(7, 14%);
+    grid-template-rows:repeat(6, 18%);
+}
+
+.dia {
+    box-shadow: rgb(0, 0, 0) 2px 3px 5px;
+    background-color: rgb(70, 70, 70);
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    border-radius: 4px;
+}
+
+.dia:hover{
+    background-color: rgba(242, 242, 242, 0.27);
+}
+
+.numero-dia {
+    color: rgb(247, 247, 247);
+    position: absolute;
+    font-size: 20pt;
+    opacity: .2;
+    align-self: flex-end;
+}
+
+.vazio {
+    display: flex;
+    color: grey;
+}
+
+
+.conteudo-dia {
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+}
+
+.falta {
+
+}
+
+.atraso {
+
+}
+
+.s-antecipada {
+
+}
+
+.greve {
+
+}
+
+.folga {
+        background-color: rgb(121, 121, 121);
+}
+
+
+.abono {
+    color: rgb(152, 126, 48);
+}
+
+.p-facultativo {
+
+}
+
+.ferias {
+    color: rgb(46, 46, 159);
+}
+
+.paternidade {
+
+}
+
+.gestante {
+
+}
+
+.luto {
+
+}
+
+.gala {
+
+}
+
+.eleitoral {
+
+}
+
+.aa {
+
+}
+
+.ac {
+
+}
+
+.lm {
+
+}
+
+.cj {
+
+}
+
+.treinamento {
+
+}
+
+.disciplinar {
+
+}
+
+.susp-contrato {
+
+}
+
+.p-desportiva {
+
+}
+
+.outros {
+
+}
+
+span[class^="escala-"] {
+    padding: 1px 2px;
+    font-weight: bold;
+    color: white;
+}
+
+.escala-a {
+    background-color: orange;
+}
+
+.escala-b {
+    background-color: green;
+}
+
+.escala-c {
+    background-color: blue
+}
+
+.escala-d {
+    background-color: purple;
+}
+
+.escala-e {
+    background-color: brown;
+}
+
+#dom::after {
+    content: "Domingo";
+}
+
+#seg::after {
+    content: "Segunda";
+}
+
+#ter::after {
+    content: "Terça";
+}
+
+#qua::after {
+    content: "Quarta";
+}
+
+#qui::after {
+    content: "Quinta";
+}
+
+#sex::after {
+    content: "Sexta";
+}
+
+#sab::after {
+    content: "Sábado";
+}
+
+
+#div-tema {
+    position: absolute;
+    right: 3px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 17px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .2s;
+    transition: .2s;
+  }
+  
+  input:checked + .slider {
+    background-color: #7090a8;
+  }
+  
+  /* input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  } */
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(13px);
+    -ms-transform: translateX(13px);
+    transform: translateX(13px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 17px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+@media only screen and (max-width: 600px) {
+    #menu-ano-mes, #escala {
+        font-size: 8pt;
+    }
+
+    #div-mes {
+        min-width: 120px;
+    }
+
+    .numero-dia {
+      font-size: 10pt;
+    }
+    #dom::after {
+        content: "Dom";
+    }
+    
+    #seg::after {
+        content: "Seg";
+    }
+    
+    #ter::after {
+        content: "Ter";
+    }
+    
+    #qua::after {
+        content: "Qua";
+    }
+    
+    #qui::after {
+        content: "Qui";
+    }
+    
+    #sex::after {
+        content: "Sex";
+    }
+    
+    #sab::after {
+        content: "Sáb";
+    }
+  }

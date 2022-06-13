@@ -2,17 +2,16 @@ const calendario = document.getElementById('calendario')
 
 const diasDaSemana = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado']
 const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
-var a = [	""	,	"a"	,	"a"	,	""	,	""	,	""	,	"a"	,	""	,	""	,	""	,	"a"	,	""	,	""	,	""	,	""	,	"a"	,	"a"	,	""	,	""	,	"a"	,	""	,	""	,	""	,	"a"	,	""	,	""	,	""	,	""	,	"a"	,	""	,	""	,	""	,	"a"	,	""	,	""	]
-var b = [	""	,	""	,	"b"	,	""	,	""	,	""	,	""	,	"b"	,	""	,	""	,	""	,	"b"	,	""	,	""	,	""	,	"b"	,	"b"	,	""	,	""	,	""	,	"b"	,	""	,	""	,	""	,	"b"	,	""	,	""	,	""	,	""	,	"b"	,	"b"	,	""	,	""	,	"b"	,	""	]	
-var c = [	""	,	""	,	""	,	"c"	,	""	,	""	,	""	,	""	,	"c"	,	"c"	,	""	,	""	,	"c"	,	""	,	""	,	""	,	"c"	,	""	,	""	,	""	,	""	,	"c"	,	""	,	""	,	""	,	"c"	,	""	,	""	,	""	,	"c"	,	"c"	,	""	,	""	,	""	,	"c"	]		
-var d = [	"d"	,	""	,	""	,	""	,	"d"	,	""	,	""	,	""	,	"d"	,	"d"	,	""	,	""	,	""	,	"d"	,	""	,	""	,	""	,	"d"	,	""	,	""	,	""	,	""	,	"d"	,	"d"	,	""	,	""	,	"d"	,	""	,	""	,	""	,	"d"	,	""	,	""	,	""	,	""	]	
-var e = [	""	,	"e"	,	"e"	,	""	,	""	,	"e"	,	""	,	""	,	""	,	"e"	,	""	,	""	,	""	,	""	,	"e"	,	""	,	""	,	""	,	"e"	,	""	,	""	,	""	,	"e"	,	"e"	,	""	,	""	,	""	,	"e"	,	""	,	""	,	""	,	"e"	,	""	,	""	,	""	]		
+var a = [	""	,	"A"	,	"A"	,	""	,	""	,	""	,	"A"	,	""	,	""	,	""	,	"A"	,	""	,	""	,	""	,	""	,	"A"	,	"A"	,	""	,	""	,	"A"	,	""	,	""	,	""	,	"A"	,	""	,	""	,	""	,	""	,	"A"	,	""	,	""	,	""	,	"A"	,	""	,	""	]
+var b = [	""	,	""	,	"B"	,	""	,	""	,	""	,	""	,	"B"	,	""	,	""	,	""	,	"B"	,	""	,	""	,	""	,	"B"	,	"B"	,	""	,	""	,	""	,	"B"	,	""	,	""	,	""	,	"B"	,	""	,	""	,	""	,	""	,	"B"	,	"B"	,	""	,	""	,	"B"	,	""	]	
+var c = [	""	,	""	,	""	,	"C"	,	""	,	""	,	""	,	""	,	"C"	,	"C"	,	""	,	""	,	"C"	,	""	,	""	,	""	,	"C"	,	""	,	""	,	""	,	""	,	"C"	,	""	,	""	,	""	,	"C"	,	""	,	""	,	""	,	"C"	,	"C"	,	""	,	""	,	""	,	"C"	]		
+var d = [	"D"	,	""	,	""	,	""	,	"D"	,	""	,	""	,	""	,	"D"	,	"D"	,	""	,	""	,	""	,	"D"	,	""	,	""	,	""	,	"D"	,	""	,	""	,	""	,	""	,	"D"	,	"D"	,	""	,	""	,	"D"	,	""	,	""	,	""	,	"D"	,	""	,	""	,	""	,	""	]	
+var e = [	""	,	"E"	,	"E"	,	""	,	""	,	"E"	,	""	,	""	,	""	,	"E"	,	""	,	""	,	""	,	""	,	"E"	,	""	,	""	,	""	,	"E"	,	""	,	""	,	""	,	"E"	,	"E"	,	""	,	""	,	""	,	"E"	,	""	,	""	,	""	,	"E"	,	""	,	""	,	""	]		
 
 async function carregarCalendario(data) {
     
     const ano = data.getFullYear()
     const mes = data.getMonth()
-    const dia = data.getDate()
 
     const primeiroDiaDoMes = new Date(ano, mes, 1)
     
@@ -80,49 +79,46 @@ async function carregarCalendario(data) {
             let mesAtual = mes + 1
             conteudoDia.id = i - diasVazios + '/' + mesAtual + '/' + ano
             
-            escalaA.innerText = a[index].toUpperCase()
+            escalaA.innerText = a[index]
             if (a[index] != '') {
                 if (escalaSelecionada == 'a' || escalaSelecionada == 'todas' || escalaSelecionada == undefined) {
                     folgasEscalas.appendChild(escalaA)
-                    if (escalaSelecionada == 'a') quadradoDia.style.backgroundColor = 'rgba(' + 242 + ',' + 242 + ', ' + 242 + ',' + 1 + ')'
+                    if (escalaSelecionada == 'a') quadradoDia.classList.add('folga')
                 }
             } 
-            escalaB.innerText = b[index].toUpperCase()
+            escalaB.innerText = b[index]
             if (b[index] != '') {
                 if (escalaSelecionada == 'b' || escalaSelecionada == 'todas' || escalaSelecionada == undefined) {
                     folgasEscalas.appendChild(escalaB)
-                    if (escalaSelecionada == 'b') quadradoDia.style.backgroundColor = 'rgba(' + 242 + ',' + 242 + ', ' + 242 + ',' + 1 + ')'
+                    if (escalaSelecionada == 'b') quadradoDia.classList.add('folga')
                 }
             }
-            escalaC.innerText = c[index].toUpperCase()
+            escalaC.innerText = c[index]
             if (c[index] != '') {
                 if (escalaSelecionada == 'c' || escalaSelecionada == 'todas' || escalaSelecionada == undefined) {
                     folgasEscalas.appendChild(escalaC)
-                    if (escalaSelecionada == 'c') quadradoDia.style.backgroundColor = 'rgba(' + 242 + ',' + 242 + ', ' + 242 + ',' + 1 + ')'
+                    if (escalaSelecionada == 'c') quadradoDia.classList.add('folga')
                 }
             }
-            escalaD.innerText = d[index].toUpperCase()
+            escalaD.innerText = d[index]
             if (d[index] != '') {
                 if (escalaSelecionada == 'd' || escalaSelecionada == 'todas' || escalaSelecionada == undefined) {
                     folgasEscalas.appendChild(escalaD)
-                    if (escalaSelecionada == 'd') quadradoDia.style.backgroundColor = 'rgba(' + 242 + ',' + 242 + ', ' + 242 + ',' + 1 + ')'
+                    if (escalaSelecionada == 'd') quadradoDia.classList.add('folga')
                 }
             }
-            escalaE.innerText = e[index].toUpperCase()
+            escalaE.innerText = e[index]
             if (e[index] != '') {
                 if (escalaSelecionada == 'e' || escalaSelecionada == 'todas' || escalaSelecionada == undefined) {
                     folgasEscalas.appendChild(escalaE)
-                    if (escalaSelecionada == 'e') quadradoDia.style.backgroundColor = 'rgba(' + 242 + ',' + 242 + ', ' + 242 + ',' + 1 + ')'
+                    if (escalaSelecionada == 'e') quadradoDia.classList.add('folga')
                 }
             }
 
             conteudoDia.appendChild(folgasEscalas)
             
-            if (index == 34) {
-                index = 0
-            } else {
-                index++
-            }
+            if (index == 34) index = 0 
+            else index++
                 
             quadradoDia.appendChild(conteudoDia)
             quadradoDia.onclick = () => alert(conteudoDia.id)
@@ -138,10 +134,7 @@ async function carregarCalendario(data) {
 
 var escala = document.getElementById('escala')
 var escalaSelecionada = localStorage.getItem('escalaSelecionada')
-
-if (escalaSelecionada == null) {
-    escala.value = 'TODAS'
-} else {escala.value = escalaSelecionada}
+escala.value = escalaSelecionada
 
 escala.addEventListener('change', (e) => {
     escalaSelecionada = e.target.value
@@ -152,7 +145,6 @@ escala.addEventListener('change', (e) => {
 var dataSelecionada = new Date()
 var anoSelecionado = new Date(dataSelecionada).getFullYear()
 var mesSelecionado = new Date(dataSelecionada).getMonth()
-
 localStorage.setItem('dataSelecionada', dataSelecionada)
 
 carregarCalendario(dataSelecionada)
@@ -174,15 +166,29 @@ function menosMes() {
     carregarCalendario(new Date(anoSelecionado, mesSelecionado, 1))
 }
 
-if (screen.width < 600) {
-    document.getElementById('dom').innerText = 'Dom'
-    document.getElementById('seg').innerText = 'Seg'
-    document.getElementById('ter').innerText = 'Ter'
-    document.getElementById('qua').innerText = 'Qua'
-    document.getElementById('qui').innerText = 'Qui'
-    document.getElementById('sex').innerText = 'Sex'
-    document.getElementById('sab').innerText = 'Sáb'
-}
-
 // identificar a escala de folga do quadradoDia
 // 'quadradoDia'.childNodes[0].children[0].innerText
+
+function alternarCSS(nomeArquivo) {
+    
+    var atual = document.getElementsByTagName("link").item(0);
+
+    var novo = document.createElement("link");
+    novo.setAttribute("rel", "stylesheet");
+    novo.setAttribute("type", "text/css");
+    novo.setAttribute("href", nomeArquivo);
+
+    document.getElementsByTagName("head").item(0).replaceChild(novo, atual);
+}
+
+var light = true
+
+document.getElementById('tema').addEventListener('click', () => {
+    if (light) {
+        alternarCSS('dark.css')
+        light = false
+    } else {
+        alternarCSS('light.css')
+        light = true
+    }
+})

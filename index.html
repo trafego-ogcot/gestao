@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="light.css">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tráfego</title>
@@ -10,42 +10,44 @@
 <body>
 
     <div id="div-principal">
-        <!-- <div id="menu-inicial">
-            <button><a href="cadastro.html">Cadastro</a></button>
-            <button><a href="ferias.html">Férias</a></button>
-            <button><a href="abonos.html">Abonos</a></button>
-            <button><a href="treinamento.html">Treinamento</a></button>
-        </div> -->
+        <div id="div-tema">
+              <label class="switch">
+                <input id="tema" type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+        </div>
         <div id="div-calendario">
-            <div id="menu-escala">
-                <label for="escala">Escala</label>
-                <select name="escala" id="escala">
-                    <option value="todas">TODAS</option>
-                    <option value="a">A</option>
-                    <option value="b">B</option>
-                    <option value="c">C</option>
-                    <option value="d">D</option>
-                    <option value="e">E</option>
-                </select>
-            </div>
-            <div id="menu-ano">
-                <button id="menos-ano" onclick="menosAno()"><</button>
-                <div id="ano"></div>
-                <button id="mais-ano" onclick="maisAno()">></button>
-            </div>
-            <div id="menu-mes">
-                <button id="menos-mes" onclick="menosMes()"><</button>
-                <div id="mes"></div>
-                <button id="mais-mes" onclick="maisMes()">></button>
+            
+            <div id="menu-ano-mes">
+                <div id="div-ano">
+                    <button id="menos-ano" onclick="menosAno()"><</button>
+                    <div id="ano"></div>
+                    <button id="mais-ano" onclick="maisAno()">></button>
+                </div>
+                <div id="div-mes">
+                    <button id="menos-mes" onclick="menosMes()"><</button>
+                    <div id="mes"></div>
+                    <button id="mais-mes" onclick="maisMes()">></button>
+                </div>
+                <div id="menu-escala">
+                    <select name="escala" id="escala">
+                        <option value="todas">TODAS</option>
+                        <option value="a">ESCALA A</option>
+                        <option value="b">ESCALA B</option>
+                        <option value="c">ESCALA C</option>
+                        <option value="d">ESCALA D</option>
+                        <option value="e">ESCALA E</option>
+                    </select>
+                </div>
             </div>
             <div id="semana">
-                <span id="dom">Domingo</span>
-                <span id="seg">Segunda</span>
-                <span id="ter">Terça</span>
-                <span id="qua">Quarta</span>
-                <span id="qui">Quinta</span>
-                <span id="sex">Sexta</span>
-                <span id="sab">Sábado</span>
+                <span id="dom"></span>
+                <span id="seg"></span>
+                <span id="ter"></span>
+                <span id="qua"></span>
+                <span id="qui"></span>
+                <span id="sex"></span>
+                <span id="sab"></span>
             </div>
             <div id="calendario"></div>
         </div>
