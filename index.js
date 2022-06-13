@@ -134,7 +134,7 @@ async function carregarCalendario(data) {
 
 var escala = document.getElementById('escala')
 var escalaSelecionada = localStorage.getItem('escalaSelecionada')
-escala.value = escalaSelecionada
+escala.value = escalaSelecionada != null ? escalaSelecionada : 'todas'
 
 escala.addEventListener('change', (e) => {
     escalaSelecionada = e.target.value
