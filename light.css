@@ -57,6 +57,13 @@ button:hover {
     padding: 10px;
 }
 
+#menu-escala select {
+    background-color: rgb(255, 255, 255);
+    color: rgb(113,113,113);
+    font-family: monospace;
+    font-weight: bold;
+}
+
 #div-mes {
     min-width: 150px;
 }
@@ -322,6 +329,10 @@ span[class^="escala-"] {
 @media only screen and (max-width: 600px) {
     #menu-ano-mes, #escala {
         font-size: 8pt;
+    }
+
+    .dia {
+        border-radius: 2px;
     }
 
     #div-mes {

@@ -65,6 +65,9 @@ button:hover {
 #menu-escala select {
     background-color: rgb(45, 45, 45);
     color: rgb(184, 184, 184);
+    
+    font-family: monospace;
+    font-weight: bold;
 }
 
 #div-mes {
@@ -339,6 +342,10 @@ span[class^="escala-"] {
 
     #div-mes {
         min-width: 120px;
+    }
+
+    .dia {
+        border-radius: 2px;
     }
 
     .numero-dia {
