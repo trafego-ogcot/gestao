@@ -1,3 +1,48 @@
+//initialize firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyA9sxu2a_LybZatwJubxg218nsDRyFkuPU",
+    authDomain: "gestao-trafego.firebaseapp.com",
+    databaseURL: "https://gestao-trafego-default-rtdb.firebaseio.com",
+    projectId: "gestao-trafego",
+    storageBucket: "gestao-trafego.appspot.com",
+    messagingSenderId: "912766766816",
+    appId: "1:912766766816:web:93041643a779e219178a85"
+}
+firebase.initializeApp(firebaseConfig)
+const db = firebase.database()
+//initialize firebase end
+
+var resposta_bd
+
+async function listar_empregados (){
+db.ref('empregados')
+    .once('value')
+    .then(snap => {
+       resposta_bd = Object.values(snap.val()) 
+    })
+}
+async function listar_cursos(){
+    db.ref('cursos')
+    .once('value')
+    .then(snap => {
+        resposta_bd = Object.values(snap.val())
+    })
+}
+async function listar_horarios(){
+    db.ref('horarios')
+    .once('value')
+    .then(snap => {
+        resposta_bd = Object.values(snap.val())
+    })
+}
+async function listar_escalas(){
+    db.ref('escalas')
+    .once('value')
+    .then(snap => {
+        resposta_bd = Object.values(snap.val())
+    })
+}
+
 const calendario = document.getElementById('calendario')
 
 const diasDaSemana = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado']
@@ -170,7 +215,7 @@ function menosMes() {
 // 'quadradoDia'.childNodes[0].children[0].innerText
 
 function alternarCSS(nomeArquivo) {
-    
+
     var atual = document.getElementsByTagName("link").item(0);
 
     var novo = document.createElement("link");
