@@ -1,30 +1,44 @@
 var resposta_bd
 
 async function listar_empregados (){
-db.ref('empregados')
+    await db.ref('empregados')
     .once('value')
     .then(snap => {
        resposta_bd = Object.values(snap.val()) 
     })
 }
 async function listar_cursos(){
-    db.ref('cursos')
+    await db.ref('cursos')
     .once('value')
     .then(snap => {
         resposta_bd = Object.values(snap.val())
     })
 }
 async function listar_horarios(){
-    db.ref('horarios')
+    await db.ref('horarios')
+    .once('value')
+    .then(snap => {
+       resposta_bd = Object.values(snap.val())
+    })
+}
+async function listar_escalas(){
+    await db.ref('escalas')
     .once('value')
     .then(snap => {
         resposta_bd = Object.values(snap.val())
     })
 }
-async function listar_escalas(){
-    db.ref('escalas')
+async function listar_usofolgas(){
+    await db.ref('uso_folgas')
     .once('value')
     .then(snap => {
+        resposta_bd = Object.values(snap.val())
+    })
+}
+async function listar_direfolgas (){
+    await db.ref('direito_folgas')
+    .once('value')
+    .then(snap=> {
         resposta_bd = Object.values(snap.val())
     })
 }

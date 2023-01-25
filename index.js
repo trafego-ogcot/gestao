@@ -12,36 +12,52 @@ firebase.initializeApp(firebaseConfig)
 const db = firebase.database()
 //initialize firebase end
 
+// functions to DataBase 
 var resposta_bd
 
 async function listar_empregados (){
-db.ref('empregados')
+    await db.ref('empregados')
     .once('value')
     .then(snap => {
        resposta_bd = Object.values(snap.val()) 
     })
 }
 async function listar_cursos(){
-    db.ref('cursos')
+    await db.ref('cursos')
     .once('value')
     .then(snap => {
         resposta_bd = Object.values(snap.val())
     })
 }
 async function listar_horarios(){
-    db.ref('horarios')
+    await db.ref('horarios')
     .once('value')
     .then(snap => {
-        resposta_bd = Object.values(snap.val())
+       resposta_bd = Object.values(snap.val())
     })
 }
 async function listar_escalas(){
-    db.ref('escalas')
+    await db.ref('escalas')
     .once('value')
     .then(snap => {
         resposta_bd = Object.values(snap.val())
     })
 }
+async function listar_usofolgas(){
+    await db.ref('uso_folgas')
+    .once('value')
+    .then(snap => {
+        resposta_bd = Object.values(snap.val())
+    })
+}
+async function listar_direfolgas (){
+    await db.ref('direito_folgas')
+    .once('value')
+    .then(snap=> {
+        resposta_bd = Object.values(snap.val())
+    })
+}
+// functions to DataBase end 
 
 const calendario = document.getElementById('calendario')
 
@@ -166,7 +182,11 @@ async function carregarCalendario(data) {
             else index++
                 
             quadradoDia.appendChild(conteudoDia)
-            quadradoDia.onclick = () => alert(conteudoDia.id)
+            quadradoDia.onclick = async () => {
+                var escaladefolga = document.getElementById(conteudoDia.id).getElementsByClassName('folgas-escalas').valueOf('span')[0].outerText.split('')
+                await trabalhando (escaladefolga)
+                alert(conteudoDia.id+" folga escala: "+escaladefolga+'\n'+lista_empregados_trabalhando.length+' Empregados Trabalhando: \n'+lista_empregados_trabalhando)
+            }
         } else {
             quadradoDia.classList.add('vazio')
         }
@@ -175,7 +195,58 @@ async function carregarCalendario(data) {
     }
 }
 
+//VERIFICA QUAIS EMPREGADOS ESTÃO TRABALHANDO NO DIA
+var lista_empregados_trabalhando
+async function trabalhando (folg){
+    var folg0 = folg[0]
+    var folg1 = folg[1]
+    var folg2 = folg[2]
+    console.log(folg0+' '+folg1+' '+folg2)
+    await listar_empregados()
+    var emp = resposta_bd
+    var emp_trabalhando
+    await listar_usofolgas
+    let folgasUtilizadas = resposta_bd
+    if (folg0!= undefined){
+        var folg0_min = folg0.toLocaleLowerCase()
+        var e0 = emp.filter((i)=>i.escala != folg0_min )
+        if(folg1 != undefined){
+            var folg1_min = folg1.toLocaleLowerCase()
+            var e1 = e0.filter((i)=>i.escala != folg1_min)
+            if (folg2 != undefined){
+                var folg2_min = folg2.toLocaleLowerCase()
+                var e2 = e1.filter((i)=>i.escala != folg2_min)
+                emp_trabalhando = e2
+            }else {emp_trabalhando = e1}
+        } else{emp_trabalhando = e0}
+    }
 
+    var nom = emp_trabalhando.map(e => e.nome_guerra)
+    lista_empregados_trabalhando = nom
+    console.log(emp_trabalhando)
+    console.log (nom)
+}
+//VERIFICA QUAIS EMPREGADOS ESTÃO TRABALHANDO NO DIA FIM
+
+//MOSTRA QUANTIDADE DE EMPREGADOS POR ESCALA
+async function emp_por_escala (){
+    await listar_empregados()
+    var empr_total = resposta_bd
+    var emp_a = empr_total.filter((i)=> i.escala == 'a').length
+    var emp_b =empr_total.filter((i)=>i.escala == 'b').length
+    var emp_c = empr_total.filter((i)=>i.escala == 'c').length
+    var emp_d = empr_total.filter((i)=> i.escala == 'd').length
+    var emp_e = empr_total.filter((i)=>i.escala == 'e').length
+    document.getElementById('esc-a').innerText = '   A: '+emp_a
+    document.getElementById('esc-b').innerText = '   B: '+emp_b
+    document.getElementById('esc-c').innerText = '   C: '+emp_c
+    document.getElementById('esc-d').innerText = '   D: '+emp_d
+    document.getElementById('esc-e').innerText = '   E: '+emp_e
+}
+emp_por_escala()
+
+
+//MOSTRA QUANTIDADE DE EMPREGADOS POR ESCALA FIM
 
 var escala = document.getElementById('escala')
 var escalaSelecionada = localStorage.getItem('escalaSelecionada')
