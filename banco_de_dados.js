@@ -35,3 +35,65 @@ async function listar_empregados() {
 }
 
 await listar_empregados()
+
+
+// cargo_funcao
+// :
+// "pi"
+// cep
+// :
+// "39511916"
+// chave_padrao
+// :
+// "Q366"
+// cidade
+// :
+// "Maranguape"
+// data_admissao
+// :
+// "20/11/2015"
+// data_nascimento
+// :
+// "25/02/1988"
+// email
+// :
+// "aliquam@google.ca"
+// email1
+// :
+// "id.libero@hotmail.couk"
+// endereco
+// :
+// "Ap #691-1916 Ornare Rd."
+// escala
+// :
+// "c"
+// horario
+// :
+// "19:00"
+// matricula
+// :
+// "3165-Z"
+// nome_comp
+// :
+// "Selma Galloway"
+// nome_guerra
+// :
+// "Isaac"
+// posto
+// :
+// "CLA"
+// telefone1
+// :
+// "1-448-427-5011"
+// telefone2
+// :
+// "1-484-710-2834"
+// telefone3
+// :
+// "(484) 758-5164"
+// telefone4
+// :
+// "(791) 674-9553"
+// turno
+// :
+// "manha"

@@ -376,3 +376,12 @@ span[class^="escala-"] {
         content: "Sáb";
     }
   }
+  .emp-p-esc{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(7, 14%);
+    margin-bottom: 8px;
+    color: rgb(171, 171, 171);
+  }
